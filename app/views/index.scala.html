@@ -1,5 +1,42 @@
-@(json:String )
+@main("Home Page") {
 
-@main("Welcome to Play") {
-  <h1>@json</h1>
+    <div class="carousel" id="sliderwindow">
+      <ul class="panel_window">
+        <li><img class="corousal_image" src="/assets/images/homepage/bb1.jpg" alt=""></li>
+        <li><img class="corousal_image" src="/assets/images/homepage/bb2.jpg" alt=""></li>
+        <li><img class="corousal_image" src="/assets/images/homepage/bb3.jpg" alt=""></li>
+        <li><img class="corousal_image" src="/assets/images/homepage/bb4.jpg" alt=""></li>
+        <li><img class="corousal_image" src="/assets/images/homepage/bb5.jpg" alt=""></li>
+      </ul>
+    </div>
+    <div id="categories">
+      <div class="vegnfruits">
+        <a href="#"><img src="/assets/images/homepage/fruits_veg.jpg" alt=""></a>
+      </div>
+
+      <div class="midbody">
+        <h1>Shop By Category</h1>
+        <div class="shoppingwindows">
+            <section class="midcommon">
+              <a href="/naturebasket/fruits" class="shoppinglink" id="fruits_link"><img src="/assets/images/homepage/Fruits.jpg" alt=""></a>
+              <div class="imagetitle">Fresh Fruits</div>
+            </section>
+
+            <section class="midcommon">
+              <a href="/naturebasket/vegetables" class="shoppinglink" id="vegetables_link"><img src="/assets/images/homepage/Vegetables.jpg" alt=""></a>
+              <div class="imagetitle">Fresh Vegetables</div>
+            </section>
+
+            <section class="midcommon">
+              <a href="/naturebasket/dairy" class="shoppinglink" id="dairy_link"><img src="/assets/images/homepage/dairy.jpg" alt=""></a>
+              <div class="imagetitle">Bread & Dairy</div>
+            </section>
+
+            <section class="midcommon">
+              <a href="/naturebasket/grossary" class="shoppinglink" id="grocery_link"><img src="/assets/images/homepage/grocery.png" alt=""></a>
+              <div class="imagetitle">Grocerys & Staples</div>
+            </section>
+        </div>
+      </div>
+    </div>
 }

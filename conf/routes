@@ -8,3 +8,9 @@
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
 GET     /                           controllers.HomeController.index
+GET     /naturebasket/fruits        controllers.HomeController.getFruits
+GET     /naturebasket/vegetables    controllers.HomeController.getVegetables
+GET     /naturebasket/dairy         controllers.HomeController.getDairy
+GET     /naturebasket/grossary      controllers.HomeController.getGrossary
+
+

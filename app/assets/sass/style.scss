@@ -1,0 +1,14 @@
+// mixins
+@import "mixins/clearfix",
+		"mixins/mediaqueries";
+
+// home page SCSS files
+@import "homepage/header",
+		"homepage/footer",
+		"homepage/maincontent";
+
+@import "reset";
+
+
+
+  
