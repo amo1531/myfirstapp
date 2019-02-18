@@ -5,13 +5,7 @@
   window.ShoppingCart = ShoppingCart = (function() {
     function ShoppingCart() {}
 
-    ShoppingCart.prototype.init = function() {
-      return $(document).on("click", (function(_this) {
-        return function() {
-          return console.log("---------->");
-        };
-      })(this));
-    };
+    ShoppingCart.prototype.init = function() {};
 
     return ShoppingCart;
 

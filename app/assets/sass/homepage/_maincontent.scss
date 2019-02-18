@@ -76,7 +76,6 @@
     @include clearfix;
 }
 .imagetitle{
-    font-style: Ubuntu;
     font-size: 22px;
     color: rgb(30, 30, 30);
     text-align: center;
@@ -84,7 +83,7 @@
     background-color: rgb(225, 225, 225);
 }
 .midcommon{
-    float: left;
+    display:inline-block;
     width: 24%;
     margin: 5px;
     box-shadow: 0 0 0 1px #e1e1e1;

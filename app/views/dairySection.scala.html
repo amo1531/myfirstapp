@@ -1,4 +1,29 @@
-@(data:String)
+@import models.Item
+@(listItems:List[Item])
 @main("Dairy Page") {
-<p>@data</p>
+
+<div class="ItemsWrapper" id="fruits_section">
+    <div class="ItemHeading">
+        <h1>Dairy Products</h1>
+    </div>
+    @for(item <- listItems) {
+    <div class="ItemInfo">
+        <img src="@item.imageSrc" alt="">
+        <div class="ItemInfo_details">
+            <p class="Item_name" id="name_1">@item.name.capitalize</p>
+            <p class="Item_price"> Rs.<span id='price_1'>@item.price</span></p>
+
+            <div class='Item_oprations'>
+                <input class="Quantity_IncDec" type='button' value='-' id='minus_1'/>
+                <input type='text' readonly id='quantity_1' value='1' class='qty' />
+                <input class="Quantity_IncDec" type='button' value='+' id='plus_1'/>
+            </div>
+        </div>
+        <div class="Item_cartOperation">
+            <button type="submit" class="addbutton" id="buttonAdd_1" style="display:block;" value="Add to Cart">Add to Cart</button>
+            <button type="submit" class="rmvbutton" id="buttonRemove_1" style="display:none;" value="Remove from Cart">Remove From Cart</button>
+        </div>
+    </div>
+    }
+</div>
 }
