@@ -3,9 +3,44 @@
   var ShoppingCart;
 
   window.ShoppingCart = ShoppingCart = (function() {
-    function ShoppingCart() {}
+    function ShoppingCart() {
+      this.incrementCount = ".Item_incrCount";
+      this.decrementCount = ".Item_decCount";
+    }
 
-    ShoppingCart.prototype.init = function() {};
+    ShoppingCart.prototype.init = function() {
+      $(this.incrementCount).on("click", (function(_this) {
+        return function(e) {
+          var $this;
+          $this = $(e.target);
+          return _this.incrQuantity($this);
+        };
+      })(this));
+      return $(this.decrementCount).on("click", (function(_this) {
+        return function(e) {
+          var $this;
+          $this = $(e.target);
+          return _this.subtractQuantity($this);
+        };
+      })(this));
+    };
+
+    ShoppingCart.prototype.incrQuantity = function($this) {
+      var finalQty, initialQty;
+      initialQty = $this.parent(".Item_counter").find(".Item_qty");
+      finalQty = parseInt($(initialQty).html()) + 1;
+      console.log(finalQty);
+      return $(initialQty).html(finalQty);
+    };
+
+    ShoppingCart.prototype.subtractQuantity = function($this) {
+      var finalQty, initialQty;
+      initialQty = $this.parent(".Item_counter").find(".Item_qty");
+      if (!($(initialQty).html() === "1")) {
+        finalQty = parseInt($(initialQty).html()) - 1;
+        return $(initialQty).html(finalQty);
+      }
+    };
 
     return ShoppingCart;
 

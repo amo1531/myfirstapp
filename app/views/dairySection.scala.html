@@ -2,28 +2,29 @@
 @(listItems:List[Item])
 @main("Dairy Page") {
 
-<div class="ItemsWrapper" id="fruits_section">
-    <div class="ItemHeading">
+<div id="items" class="Item ItemWrapper">
+    <div class="Item_heading">
         <h1>Dairy Products</h1>
     </div>
     @for(item <- listItems) {
-    <div class="ItemInfo">
+    <div class="Item_info">
         <img src="@item.imageSrc" alt="">
-        <div class="ItemInfo_details">
-            <p class="Item_name" id="name_1">@item.name.capitalize</p>
-            <p class="Item_price"> Rs.<span id='price_1'>@item.price</span></p>
+        <div class="Item_detail">
+            <p class="Item_name">@item.name.capitalize</p>
+            <p class="Item_priceInfo">Rs.<span class="Item_price">@item.price</span><span> For 500g</span></p>
 
-            <div class='Item_oprations'>
-                <input class="Quantity_IncDec" type='button' value='-' id='minus_1'/>
-                <input type='text' readonly id='quantity_1' value='1' class='qty' />
-                <input class="Quantity_IncDec" type='button' value='+' id='plus_1'/>
+            <div class="Item_operations">
+                <a class="Item_addToCart">Add to Cart</a>
+                <ul class="Item_counter">
+                    <li class="Item_decCount">-</li>
+                    <li class="Item_qty">1</li>
+                    <li class="Item_incrCount">+</li>
+                </ul>
             </div>
-        </div>
-        <div class="Item_cartOperation">
-            <button type="submit" class="addbutton" id="buttonAdd_1" style="display:block;" value="Add to Cart">Add to Cart</button>
-            <button type="submit" class="rmvbutton" id="buttonRemove_1" style="display:none;" value="Remove from Cart">Remove From Cart</button>
+
         </div>
     </div>
     }
 </div>
+
 }

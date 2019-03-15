@@ -13,4 +13,6 @@ GET     /naturebasket/vegetables    controllers.HomeController.getVegetables
 GET     /naturebasket/dairy         controllers.HomeController.getDairy
 GET     /naturebasket/grossary      controllers.HomeController.getGrossary
 
+GET     /naturebasket/addtocart     controllers.CartController.addToCart
+
 

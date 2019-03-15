@@ -11,10 +11,6 @@ libraryDependencies += guice
 libraryDependencies ++= Seq(
   "org.scalatestplus.play" %% "scalatestplus-play" % "4.0.1" % Test,
   jdbc,
-  "mysql" % "mysql-connector-java" % "5.1.+"
-)
-// Adds additional packages into Twirl
-//TwirlKeys.templateImports += "com.example.controllers._"
+  "org.mongodb.scala" %% "mongo-scala-driver" % "2.6.0"
 
-// Adds additional packages into conf/routes
-// play.sbt.routes.RoutesKeys.routesImport += "com.example.binders._"
+)
