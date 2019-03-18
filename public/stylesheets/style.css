@@ -353,6 +353,7 @@ footer .footer-container .row p {
   margin: 5px;
   box-shadow: 0 0 0 2px #e1e1e1;
   border-radius: 5px;
+  height: 460px;
 }
 .Item .Item_info img {
   display: block;
@@ -392,15 +393,13 @@ footer .footer-container .row p {
   color: #ffffff;
   padding: 10px 20px;
   background: #84c225;
-  height: 35px;
   outline: none;
   cursor: pointer;
 }
 .Item_operations .Item_counter {
   font-size: 14px;
   height: 35px;
-  width: 100%;
-  margin: 20px 0;
+  width: 100px;
 }
 .Item_operations .Item_counter:before, .Item_operations .Item_counter:after {
   content: "";
@@ -417,9 +416,17 @@ footer .footer-container .row p {
   height: 100%;
   line-height: 30px;
   text-align: center;
-  width: 31%;
+  width: 32px;
   float: left;
   list-style: none;
+}
+
+.Show {
+  display: block;
+}
+
+.Hide {
+  display: none;
 }
 
 body {

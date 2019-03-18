@@ -6,40 +6,54 @@
     function ShoppingCart() {
       this.incrementCount = ".Item_incrCount";
       this.decrementCount = ".Item_decCount";
+      this.addToCartButton = ".Item_addToCart";
     }
 
     ShoppingCart.prototype.init = function() {
-      $(this.incrementCount).on("click", (function(_this) {
+      this.registerIncrementQuantity();
+      this.registerDecrementQuantity();
+      return this.registerAddToCart();
+    };
+
+    ShoppingCart.prototype.registerAddToCart = function() {
+      return $(this.addToCartButton).on("click", (function(_this) {
         return function(e) {
-          var $this;
+          var $this, counterElements;
           $this = $(e.target);
-          return _this.incrQuantity($this);
+          counterElements = $this.parent(".Item_operations").find("ul");
+          $(counterElements).removeClass("Hide");
+          return $this.addClass("Hide");
         };
       })(this));
+    };
+
+    ShoppingCart.prototype.registerIncrementQuantity = function() {
+      return $(this.incrementCount).on("click", (function(_this) {
+        return function(e) {
+          var $this, finalQty, initialQty;
+          $this = $(e.target);
+          initialQty = $this.parent(".Item_counter").find(".Item_qty");
+          finalQty = parseInt($(initialQty).html()) + 1;
+          return $(initialQty).html(finalQty);
+        };
+      })(this));
+    };
+
+    ShoppingCart.prototype.registerDecrementQuantity = function() {
       return $(this.decrementCount).on("click", (function(_this) {
         return function(e) {
-          var $this;
+          var $this, finalQty, initialQty;
           $this = $(e.target);
-          return _this.subtractQuantity($this);
+          initialQty = $this.parent(".Item_counter").find(".Item_qty");
+          if ($(initialQty).html() === "1") {
+            $this.parents(".Item_operations").find(".Item_addToCart").removeClass("Hide").addClass("Show");
+            return $this.parent(".Item_counter").addClass("Hide");
+          } else {
+            finalQty = parseInt($(initialQty).html()) - 1;
+            return $(initialQty).html(finalQty);
+          }
         };
       })(this));
-    };
-
-    ShoppingCart.prototype.incrQuantity = function($this) {
-      var finalQty, initialQty;
-      initialQty = $this.parent(".Item_counter").find(".Item_qty");
-      finalQty = parseInt($(initialQty).html()) + 1;
-      console.log(finalQty);
-      return $(initialQty).html(finalQty);
-    };
-
-    ShoppingCart.prototype.subtractQuantity = function($this) {
-      var finalQty, initialQty;
-      initialQty = $this.parent(".Item_counter").find(".Item_qty");
-      if (!($(initialQty).html() === "1")) {
-        finalQty = parseInt($(initialQty).html()) - 1;
-        return $(initialQty).html(finalQty);
-      }
     };
 
     return ShoppingCart;

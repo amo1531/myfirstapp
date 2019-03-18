@@ -19,6 +19,7 @@
         margin: 5px;
         box-shadow: 0 0 0 2px #e1e1e1;
         border-radius: 5px;
+        height:460px;
 
         img {
             display:block;
@@ -60,7 +61,6 @@
         color: #ffffff;
         padding: 10px 20px;
         background: #84c225;
-        height: 35px;
         outline: none;
         cursor: pointer;
     }
@@ -69,8 +69,7 @@
         @include clearfix;
         font-size: 14px;
         height: 35px;
-        width: 100%;
-        margin: 20px 0;
+        width: 100px;
     }
 
     li{
@@ -81,8 +80,15 @@
         height: 100%;
         line-height:30px;
         text-align: center;
-        width: 31%;
+        width: 32px;
         float: left;
         list-style: none;
     }
+}
+
+.Show {
+    display:block;
+}
+.Hide {
+    display:none;
 }
