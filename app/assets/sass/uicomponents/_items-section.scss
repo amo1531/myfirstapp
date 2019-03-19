@@ -19,7 +19,7 @@
         margin: 5px;
         box-shadow: 0 0 0 2px #e1e1e1;
         border-radius: 5px;
-        height:460px;
+        height:520px;
 
         img {
             display:block;
@@ -55,21 +55,27 @@
 .Item_operations {
      @include clearfix;
 
-    .Item_addToCart {
+    .Item_Button {
         box-shadow: 4px 4px 4px #ccc;
         font-size: 14px;
         color: #ffffff;
         padding: 10px 20px;
-        background: #84c225;
         outline: none;
         cursor: pointer;
-    }
 
+        &.Item_addToCart {
+            background: #84c225;
+        }
+        &.Item_removeFromCart {
+            background:#FF0000;
+        }
+    }
     .Item_counter {
         @include clearfix;
         font-size: 14px;
         height: 35px;
-        width: 100px;
+        width: 118px;
+        margin-bottom: 30px;
     }
 
     li{
@@ -80,7 +86,7 @@
         height: 100%;
         line-height:30px;
         text-align: center;
-        width: 32px;
+        width: 37px;
         float: left;
         list-style: none;
     }

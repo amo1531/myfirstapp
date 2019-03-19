@@ -3,7 +3,7 @@ package services
 import javax.inject.Inject
 import models.Item
 
-class ItemService @Inject() () {
+class HomeService @Inject()() {
 
   def getVegetablesList() = {
     List(Item("onion",25,"/assets/images/vegetables/onions.jpg"),Item("potato",20,"/assets/images/vegetables/potato.png"),

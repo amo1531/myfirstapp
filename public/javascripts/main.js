@@ -7,22 +7,51 @@
       this.incrementCount = ".Item_incrCount";
       this.decrementCount = ".Item_decCount";
       this.addToCartButton = ".Item_addToCart";
+      this.removeFromCartButton = ".Item_removeFromCart";
     }
 
     ShoppingCart.prototype.init = function() {
       this.registerIncrementQuantity();
       this.registerDecrementQuantity();
-      return this.registerAddToCart();
+      this.registerAddToCart();
+      return this.registerRemoveFromCart();
     };
 
     ShoppingCart.prototype.registerAddToCart = function() {
       return $(this.addToCartButton).on("click", (function(_this) {
         return function(e) {
-          var $this, counterElements;
+          var $this, counterElements, imgSource, itemName, itemPrice, itemQty;
           $this = $(e.target);
           counterElements = $this.parent(".Item_operations").find("ul");
-          $(counterElements).removeClass("Hide");
-          return $this.addClass("Hide");
+          $this.addClass("Hide");
+          $this.parent(".Item_operations").find(_this.removeFromCartButton).removeClass("Hide");
+          itemName = $this.parents(".Item_info").find(".Item_name").html();
+          itemPrice = $this.parents(".Item_info").find(".Item_price").html();
+          itemQty = $this.parents(".Item_info").find(".Item_qty").html();
+          imgSource = $this.parents(".Item_info").find("img").attr("src");
+          console.log(itemName + " " + itemPrice + " " + itemQty + " " + imgSource);
+          return $.ajax({
+            url: "/addtocart?itemName=" + itemName + "&itemPrice=" + itemPrice + "&itemQty=" + itemQty + "&imgSource=" + imgSource,
+            success: function(result) {}
+          });
+        };
+      })(this));
+    };
+
+    ShoppingCart.prototype.registerRemoveFromCart = function() {
+      return $(this.removeFromCartButton).on("click", (function(_this) {
+        return function(e) {
+          var $this, itemName;
+          $this = $(e.target);
+          $this.addClass("Hide");
+          $this.parent(".Item_operations").find(_this.addToCartButton).removeClass("Hide");
+          $this.parents(".Item_info").find(".Item_qty").html("1");
+          itemName = $this.parents(".Item_info").find(".Item_name").html();
+          console.log(itemName);
+          return $.ajax({
+            url: "/removefromcart?itemName=" + itemName,
+            success: function(result) {}
+          });
         };
       })(this));
     };
@@ -45,10 +74,7 @@
           var $this, finalQty, initialQty;
           $this = $(e.target);
           initialQty = $this.parent(".Item_counter").find(".Item_qty");
-          if ($(initialQty).html() === "1") {
-            $this.parents(".Item_operations").find(".Item_addToCart").removeClass("Hide").addClass("Show");
-            return $this.parent(".Item_counter").addClass("Hide");
-          } else {
+          if (!($(initialQty).html() === "1")) {
             finalQty = parseInt($(initialQty).html()) - 1;
             return $(initialQty).html(finalQty);
           }
